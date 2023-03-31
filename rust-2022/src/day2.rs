@@ -41,7 +41,6 @@ pub fn part1() -> u32 {
     input_text.split('\n').map(score_round_part1).sum()
 }
 
-
 fn score_round_part2(round: &str) -> u32 {
     let round_parts = round.split(' ').collect::<Vec<&str>>();
     let their_move = round_parts[0];
@@ -55,9 +54,8 @@ fn score_round_part2(round: &str) -> u32 {
         (tie, "Y") => tie,
         (lose, "X") => loser_moves[winner_moves.iter().position(|&t| t == lose).unwrap()],
         (win, "Z") => winner_moves[loser_moves.iter().position(|&t| t == win).unwrap()],
-        (_, _) => unimplemented!()
+        (_, _) => unimplemented!(),
     };
-   
 
     let mut result_score = 3;
     for i in 0..3 {
