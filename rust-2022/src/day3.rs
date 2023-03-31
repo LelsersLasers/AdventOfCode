@@ -17,13 +17,7 @@ pub fn part1() -> u32 {
         .map(|rucksack| rucksack.split_at(rucksack.len() / 2)) // cut in half
         .map(|(compartment1, compartment2)| {
             // find duplicate letter
-            compartment1.chars().find_map(|c| {
-                if compartment2.contains(c) {
-                    Some(c)
-                } else {
-                    None
-                }
-            })
+            compartment1.chars().find(|c| compartment2.contains(c.to_owned()))
         })
         .map(|letter| (ALPHABET.find(|l| l == letter.unwrap()).unwrap() + 1) as u32)
         .sum()
