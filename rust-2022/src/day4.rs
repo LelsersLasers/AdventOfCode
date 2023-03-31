@@ -1,5 +1,6 @@
 use crate::utils;
 
+#[allow(dead_code)]
 pub fn day4() {
     let day4_part1_solution = part1();
     println!("Day 4 - Part 1: {day4_part1_solution}");
