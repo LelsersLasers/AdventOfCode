@@ -1,5 +1,6 @@
 use crate::utils;
 
+#[allow(dead_code)]
 pub fn day3() {
     let day3_part1_solution = part1();
     println!("Day 3 - Part 1: {day3_part1_solution}");
@@ -17,7 +18,9 @@ pub fn part1() -> u32 {
         .map(|rucksack| rucksack.split_at(rucksack.len() / 2)) // cut in half
         .map(|(compartment1, compartment2)| {
             // find duplicate letter
-            compartment1.chars().find(|c| compartment2.contains(c.to_owned()))
+            compartment1
+                .chars()
+                .find(|c| compartment2.contains(c.to_owned()))
         })
         .map(|letter| (ALPHABET.find(|l| l == letter.unwrap()).unwrap() + 1) as u32)
         .sum()
@@ -37,14 +40,17 @@ pub fn part2() -> u32 {
     let mut badge_letters = Vec::new();
     for grouped_sac in grouped_sacs {
         // unique between first 2
-        let badge = grouped_sac[0].chars().find(|c| {
-            grouped_sac[1].contains(c.to_owned()) && grouped_sac[2].contains(c.to_owned())
-        })
-        .unwrap();
+        let badge = grouped_sac[0]
+            .chars()
+            .find(|c| {
+                grouped_sac[1].contains(c.to_owned()) && grouped_sac[2].contains(c.to_owned())
+            })
+            .unwrap();
         badge_letters.push(badge);
     }
 
-    badge_letters.into_iter()
+    badge_letters
+        .into_iter()
         .map(|letter| (ALPHABET.find(|l| l == letter).unwrap() + 1) as u32)
         .sum()
 }
