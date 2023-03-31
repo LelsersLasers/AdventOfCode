@@ -38,7 +38,7 @@ fn score_round_part1(round: &str) -> u32 {
 }
 pub fn part1() -> u32 {
     let input_text = utils::read_file("inputs/day2.txt");
-    input_text.split("\n").map(|round| score_round_part1(round)).sum()
+    input_text.split('\n').map(score_round_part1).sum()
 }
 
 
@@ -79,5 +79,5 @@ fn score_round_part2(round: &str) -> u32 {
 }
 pub fn part2() -> u32 {
     let input_text = utils::read_file("inputs/day2.txt");
-    input_text.split("\n").map(|round| score_round_part2(round)).sum()
+    input_text.split('\n').map(score_round_part2).sum()
 }

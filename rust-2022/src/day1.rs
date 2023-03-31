@@ -14,7 +14,7 @@ pub fn part1() -> u32 {
     input_text
         .split("\n\n") // 2 line breaks inbetween elves
         .map(|elf| {
-            elf.split("\n")
+            elf.split('\n')
                 .map(|calorie| calorie.parse::<u32>().unwrap())
                 .sum()
         })
@@ -27,7 +27,7 @@ pub fn part2() -> u32 {
     let mut elf_calories = input_text
         .split("\n\n") // 2 line breaks inbetween elves
         .map(|elf| {
-            elf.split("\n")
+            elf.split('\n')
                 .map(|calorie| calorie.parse::<u32>().unwrap())
                 .sum()
         })
