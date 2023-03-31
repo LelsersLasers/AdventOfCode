@@ -42,9 +42,8 @@ pub fn part1() -> String {
         stacks.push(Stack::new());
     }
 
-    for i in 1..crate_lines.len() {
+    for line in crate_lines.iter().skip(1) {
         // 1 => skip line with numbers
-        let line = crate_lines[i];
         for j in 0..stack_count {
             let letter_idx = 1 + 4 * j;
             let letter = line.chars().nth(letter_idx as usize).unwrap();
@@ -62,7 +61,6 @@ pub fn part1() -> String {
         let start_stack = line_parts.nth(1).unwrap().parse::<usize>().unwrap() - 1;
         let end_stack = line_parts.nth(1).unwrap().parse::<usize>().unwrap() - 1;
 
-        // stacks[start_stack].move_crates(move_count, &mut stacks[end_stack]);
         for _i in 0..move_count {
             let crate_to_move = stacks[start_stack].crates.pop().unwrap();
             stacks[end_stack].crates.push(crate_to_move);
